@@ -1,54 +1,21 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+import FC5Days from './Forecast5Days';
+import FC16Days from './Forecast16Days';
 
 class WeatherList extends React.Component {
 
     render() {
-        if(this.props.weathers) {
-            
-            let weathers = this.props.weathers;
 
-            return (
+        return (
                 <div className="container">
-                    <h3>Weather Forecast</h3>
-
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <td>Date</td>
-                                <td>Time</td>
-                                <td>Forecast</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            { weathers.map((weather, index) => {
-                                let dateTime = weather.dt_txt.split(' ');
-                                return (
-                                    <tr key={index}>
-                                        <td>{dateTime[0]}</td>
-                                        <td>{dateTime[1]}</td>
-                                        <td>{weather.weather[0].description}</td>
-                                    </tr>
-                                );
-                            }) }
-
-
-                        </tbody>
-                    </table>
-
-
-
+                    <Route exact path="/" component={()=> <FC5Days weathers={this.props.data5Days} /> } />
+                    <Route path="/daily" component={()=> <FC16Days weathers={this.props.data16Days} /> } />
                 </div>
             );
-        } else {
-            return(
-                <div>
-                    <h1>Loading Weather Data ...</h1>
-                </div>
-            );
-        }
+
     }
-
+    
 }
 
 export default WeatherList;

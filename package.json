@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.1",
+    "history": "^4.6.1",
     "react": "^15.5.4",
     "react-axios": "0.0.9",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^4.1.1",
+    "react-router-native": "^4.1.1"
   },
   "devDependencies": {
     "react-scripts": "1.0.3"
